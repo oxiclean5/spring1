@@ -23,13 +23,19 @@
  	list-style:none;
  	
  	}
+ 	.search-group {
+  position: relative;
+/*   display: table; */
+  border-collapse: separate;
+}
+ 	
  	/* SNS 아이콘  */
 .btnSNS {
   background-color: white;
   border: none;
   color: white;
   margin-top: 10px;
-  margin-left: 10px;
+  margin-left: 20px;
   padding-left: 3px;
  
   cursor: pointer;
@@ -37,6 +43,9 @@
 
   }
   #SNS{
+    margin-top: 10px;
+  margin-left: 10px;
+  padding-left: 3px;
     background-color: white;
   border: none;
   color: white;
@@ -45,9 +54,9 @@
    font-size: 40px;
         color: DodgerBlue;
   }
-  /* 버튼에 마우스 올렸을 떄 */
-  .btn:hover {
-  background-color: RoyalBlue;
+/*   /* 버튼에 마우스 올렸을 떄 */ */
+/*   .btnSNS:hover { */
+/*   background-color: RoyalBlue; */
 }
 .input-group{
 margin-top:13px;
@@ -69,10 +78,74 @@ margin-top:13px;
   background-color: #fff;
   background-image: none;
   border: 1px solid blue;
+   position:relative
+}
+#search-bt{
+
+height: 20px;
+width: 20px;
+border-radius: 30px;
+  position:relative;
+ 
+  left: -40px;
+  bottom: 5px;
+  background-color:transparent; 
+   border:0px transparent solid;
 }
 .dropdown-toggle{
 margin-top:2%;
 }
+
+#mypage {
+	position:relative;
+	right: 10px;
+	top: 10px;
+	bottom:10px;
+  list-style-type: none;
+  background-color: white;
+  height: 40px;
+    list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+/*   border: 1px solid #e7e7e7; */
+
+}
+
+#myli {
+/*   float: left; */
+  border-right:1px solid #bbb;
+}
+#myli a {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+/*   text-decoration: none; */
+}
+#myli a:hover:not(.active) {
+  background-color: #ddd;
+}
+#myli a.active {
+  color: white;
+  background-color: #4CAF50;
+}
+#mypage button{
+ position:relative;
+ top:3px;
+ background-color:transparent;  
+ border:0px transparent solid;
+}
+
+/* div */
+/* { */
+/* border-image:url(border.png) 30 30 round; */
+/* -moz-border-image:url(border.png) 30 30 round; /* Firefox */ */
+/* -webkit-border-image:url(border.png) 30 30 round; /* Safari and Chrome */ */
+/* -o-border-image:url(border.png) 30 30 round; /* Opera */ */
+/* } */
+
+
 </style>
 	<script type="text/javascript">
 		function move() {
@@ -83,9 +156,13 @@ margin-top:2%;
 			location.href ='https://www.instagram.com/?hl=ko'
 			
 		}
+		function movefacebook(){
+			location.href='https://ko-kr.facebook.com/'
+		}
+		var i3 = document.getElementById("i3").style.visibility="visible"; 
 	</script>
 	<!-- <style type ="text/css" src ="css/bootstrap.css"></style> -->
-<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default">
       <div class="navbar-header">
          <button type="button" class="navbar-toggle collapsed"
             data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
@@ -99,7 +176,8 @@ margin-top:2%;
             <!--   	로고 -->
             <span>
           <button class="btn btn-link" type ="button"  width="120px" height="60px" onclick ="move()">
-          <img src="C:\Users\user\Desktop\html workspace\image\naver.png"  width="120px" height="60px">
+          <img src="/resources/image/naver.png"  width="120px" height="60px" 
+          onError="this.style.visibility='hidden'">
           </button>
           </span>
        
@@ -108,40 +186,68 @@ margin-top:2%;
 <!--    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
   
 <!-- 		 <div class="col-lg-6"> -->
-<!--    <span class="input-group"> -->
+   <span class="search-group">
      <label for="search" class="sr-only">검색</label>
-	<input type='text' class='input_text' />
+	<input type='search' class='input_text' />
 	
-	<button type='button' class="btn btn-default" height='34px'> 
+	<button type='submit' class="btn btn-default" height='30px' id ="search-bt"> 
      <span class="fas fa-search"></span>
 	</button>
+	</span>
 	  </div>
 	  
+
+
 		<!-- 인스타 -->
 	<span class="btnSNS">
-	   <button type ="button"  onclick ="moveinsta()">
+<!-- 	   <button type ="button"  onclick ="moveinsta()"> -->
          	<i class="fab fa-instagram" id= "SNS" onclick ="moveinsta()"></i>
-        </button>
+<!--         </button> -->
   
         <!-- 페이스북 --> 
-       <button type ="button" id= "SNS" onclick ="moveinsta()">
-      	<i class="fab fa-facebook-square"  onclick ="moveinsta()"></i>
-        </button>
+<!--        <button type ="button" id= "SNS" onclick ="moveinsta()"> -->
+      	<i class="fab fa-facebook-square"  id= "SNS" onclick ="movefacebook()"></i>
+<!--         </button> -->
         </span>
+	 <ul class="nav navbar-nav navbar-right" id = "mypage">
+        <li id ="myli"><a href="main.jsp">장바구니</a></li>
+         <li id ="myli"><a href="bbs.jsp">MyPage</a></li> 
+<!--         </ul> -->
 	
 <!-- 	</span> -->
   <!-- input-group  -->
      <!-- 드롭다운 버튼(로그인 버튼) -->
-         <ul class="nav navbar-nav navbar-right">
-         <li class="dropdown">
-         <a href="#" class="dropdown-toggle"
-            data-toggle="dropdown" role="button" aria-haspoup="true"
-            aria-expanded="false">접속하기 <span class="caret"></span></a> 
-            <ul class ="dropdown-menu">
-            <li class="active"><a href="login.jsp">로그인</a></li>
-            <li><a href="join.jsp">회원가입</a></li>
-            </ul>
-         </li>
+<!--          <ul class="nav navbar-nav navbar-right"> -->
+
+
+
+
+<!-- <div class="btn-group"> -->
+  <button type="button" class="btn btn-default dropdown-toggle"   data-toggle="dropdown" aria-expanded="false">
+    접속하기 <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+<!-- </div> -->
+
+
+
+
+
+<!--          <li class="dropdown" id ="myli"> -->
+<!--          <a href="#" class="dropdown-toggle" -->
+<!--             data-toggle="dropdown" role="button" aria-haspoup="true" -->
+<!--             aria-expanded="false">접속하기 <span class="caret"></span></a>  -->
+<!--             <ul class ="dropdown-menu"> -->
+<!--             <li class="active"><a href="login.jsp">로그인</a></li> -->
+<!--             <li><a href="join.jsp">회원가입</a></li> -->
+<!--             </ul> -->
+<!--          </li> -->
          </ul>
 <!--          </span> -->
 <!--  	</div> -->

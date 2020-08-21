@@ -2985,8 +2985,8 @@ select[multiple].form-group-lg .form-control {
 .btn {
   display: inline-block;
   padding: 6px 12px;
-  margin-bottom: 0;
-  font-size: 14px;
+  margin-bottom: 3px;
+  font-size: 13px;
   font-weight: normal;
   line-height: 1.42857143;
   text-align: center;
@@ -3003,6 +3003,7 @@ select[multiple].form-group-lg .form-control {
   border: 1px solid transparent;
   border-radius: 4px;
 }
+
 .btn:focus,
 .btn:active:focus,
 .btn.active:focus,
@@ -3040,6 +3041,7 @@ fieldset[disabled] .btn {
   color: #333;
   background-color: #fff;
   border-color: #ccc;
+  border: white;
 }
 .btn-default:hover,
 .btn-default:focus,
