@@ -53,10 +53,10 @@ public class BoardMapperTests {
 	public void testUpdate() {
 		
 		BoardVO board = new BoardVO();
-		board.setBno(5L);
-		board.setTitle("오늘은 금요일");
-		board.setContent("금요일은 하체하는 날");
-		board.setWriter("헬린이 1");
+		board.setBno(3L);
+		board.setTitle("오늘은 월요일");
+		board.setContent("월요일은 무분할");
+		board.setWriter("헬린이 2");
 		
 		int count = mapper.update(board);
 		log.info("update count: " + count);
